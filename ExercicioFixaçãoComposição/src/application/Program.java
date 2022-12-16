@@ -24,10 +24,10 @@ public class Program {
 		System.out.println("Enter the client data: ");
 
 		System.out.print("Name: ");
-		String name = sc.next();
-		System.out.println("Email: ");
+		String name = sc.nextLine();
+		System.out.print("Email: ");
 		String email = sc.next();
-		System.out.println("Birth date: DD/MM/YYYY");
+		System.out.print("Birth date: DD/MM/YYYY ");
 		Date birthDate = sdf.parse(sc.next());
 		
 		Client client = new Client(name, email, birthDate);
@@ -47,7 +47,7 @@ public class Program {
 			System.out.print("Product name: ");
 			String productName = sc.next();
 			System.out.print("Product price: ");
-			double productPrice = sc.nextDouble();
+			Double productPrice = sc.nextDouble();
 
 			Product product = new Product(productName, productPrice);
 			
@@ -56,8 +56,13 @@ public class Program {
 
 			OrderItem orderItem = new OrderItem(quantity, productPrice, product);
 			
+			order.addItem(orderItem);
+			
 		}
-
+		System.out.println("ORDER SUMMARY");
+		System.out.println(order);
+		
+		sc.close();
 	}
 
 }
